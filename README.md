@@ -23,9 +23,7 @@
 
 ### :star:為個人實作起來認為的難易度，最多:star::star::star::star::star:
 
-
-### 我的[Kaggle](https://www.kaggle.com/kuoyuhong)
-
+### :point_right: 我的[Kaggle](https://www.kaggle.com/kuoyuhong)
 
 ## 主題一：資料清理數據前處理
 
