@@ -87,6 +87,18 @@ One Hot encoding: 為每個類別新增一個欄位，用 0/1 表示是否
 
 ### **Day_005_HW** (2019-04-20) － EDA資料分佈：
 
+難易度：:star::star:
+
+針對自己有興趣的欄位觀察資料分布、畫出直方圖，在畫圖花了較多時間操作和理解，有許多客製化方法決定圖的樣子
+```
+bins: 直方圖的柱數，默認為10
+edgecolor: 直方圖邊框顏色
+alpha: 透明度
+figsize：圖表長寬
+```
+實用連結：
+[Python筆記—matplotlib 創建圖例](https://zhuanlan.zhihu.com/p/37406730)
+
 ---
 
 ### **Day_006_HW** (2019-04-21) － EDA: Outlier 及處理：
