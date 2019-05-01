@@ -116,29 +116,129 @@ figsize：圖表長寬
 
 ### **Day_007_HW** (2019-04-22) － 常用的數值取代：中位數與分位數連續數值標準化：
 
+難易度：:star::star::star:
+
+對NA值用不同方法進行填補，以及數值標準化
+
+實用連結：<br>
+[Is it a good practice to always scale/normalize data for machine learning?](https://stats.stackexchange.com/questions/189652/is-it-a-good-practice-to-always-scale-normalize-data-for-machine-learning)
+
 ---
 
 ### **Day_008_HW** (2019-04-23) － DataFrame operationData frame merge/常用的 DataFrame 操作：
+
+難易度：:star::star::star:
+
+使用pd.cut方法將資料分組，並畫出箱型圖觀察
+```
+pd.cut()等寬劃分 #每一組組距一樣<br>
+pd.qcut()等頻劃分 #每一組會出現的頻率一樣
+```
+實用連結：<br>
+[pandas的cut&qcut函數](https://medium.com/@morris_tai/pandas%E7%9A%84cut-qcut%E5%87%BD%E6%95%B8-93c244e34cfc)
 
 ---
 
 ### **Day_009_HW** (2019-04-24) － 程式實作 EDA: correlation/相關係數簡介：
 
+難易度：:star:
+
+熟悉相關係數，以randint和normal方式隨機產生數值畫出scatter plot圖表
+
+```
+np.random.randint(low, high=None, size=None, dtype='l') #返回隨機整數，範圍區間為[low,high），包含low，不包含high，size為數組維度大小，
+
+np.random.normal()：
+mu, sigma = 0, 0.1 # mean and standard deviation
+s = np.random.normal(mu, sigma, 1000)
+```
+實用連結：<br>
+[Guess the Correlation 相對係數小遊戲](http://guessthecorrelation.com/)：考驗自己對相關係數的敏感度
+
 ---
 
 ### **Day_010_HW** (2019-04-25) － EDA from Correlation：
+
+難易度：:star::star::star:
+
+當使用的圖表看不出規律或如何解讀時，使用不同的方式呈現圖表<br>
+找出自己想要的欄位進行資料處理時花費較多時間，摸索了一下
+```
+.unique()函數：在list中只取不重複的物件，再由小到大排列
+
+scikit-learn中fit_transform()與transform()區別：
+二者的功能都是對資料進行某種統一處理（比如標準化~N(0,1)，將資料縮放(映射)到某個固定區間，歸一化，正則化等）
+
+boxplot(x, rot=45, fontsize=15)
+在X軸旋轉標籤角度，調整字體大小
+
+quantile函數：
+quantile(q) #0 <= q <= 1，只限於pandas的DataFrame使用，Series無法
+```
+實用連結：<br>
+[Python 中用matplotlib 繪製盒狀圖（Boxplots）和小提琴圖（Violinplots）](http://blog.topspeedsnail.com/archives/737)<br>
+[scikit-learn數據預處理fit_transform()與transform()的區別](https://blog.csdn.net/anecdotegyb/article/details/74857055)<br>
+[p分位函數（四分位數）概念與pandas中的quantile函數](https://blog.csdn.net/u011327333/article/details/71263081)
 
 ---
 
 ### **Day_011_HW** (2019-04-26) － EDA: 不同數值範圍間的特徵如何檢視/繪圖與樣式Kernel Density Estimation (KDE)：
 
+難易度：:star::star::star:
+
+針對年齡分組與排序，畫出KDE圖和長條圖<br>
+在使用seaborn套件畫KDE圖時花較多時間摸索
+
+```
+label = 'target == 1'：在圖表中顯示說明的圖例
+
+Seaborn方法：(matplotlib基礎)
+對於長條圖而言，Seaborn有 distplot() 方法，可以將單變數分佈的長條圖和kde同時繪製出來
+```
+
+實用連結：<br>
+[Python Graph Gallery](https://python-graph-gallery.com/)：<br>
+整合了許多Python繪圖函數寫法，可當成查詢用的工具手冊
+
+[R Graph Gallery](https://www.r-graph-gallery.com/)：<br>
+整合了許多R繪圖函數寫法，可當成查詢用的工具手冊
+
+[python3.x-seaborn.heatmap隨筆](https://zhuanlan.zhihu.com/p/35494575)
+
 ---
 
 ### **Day_012_HW** (2019-04-27) － EDA: 把連續型變數離散化：
 
+難易度：:star:
+
+熟悉數值的離散化的調整工具<br>
+複習pd.cut()函數，這在作業中出現過滿多次了
+
+```
+pd.cut()等寬劃分 #每一組組距一樣
+pd.qcut()等頻劃分 #每一組會出現的頻率一樣
+
+分組當中'(' 表示不包含, ']' 表示包含，EX：(0, 10], (10, 20] → 1~10、11~20
+```
+
+實用連結：<br>
+[連續特徵的離散化 : 在什麼情況下可以獲得更好的效果(知乎)](https://www.zhihu.com/question/31989952)<br>
+離散化的理由：儲存空間小，計算快，降低異常干擾與過擬合(ovefitting)的風險
+
+[pandas的cut&qcut函數](https://medium.com/@morris_tai/pandas%E7%9A%84cut-qcut%E5%87%BD%E6%95%B8-93c244e34cfc)
+
 ---
 
 ### **Day_013_HW** (2019-04-28) － 程式實作 把連續型變數離散化：
+
+難易度：:star::star::star::star:
+
+離散化自己有興趣的欄位，有些欄位比較難弄，弄了滿多時間，參數一直調不好:joy:<br>
+需要參考到前面Day11、12的方法，也算是在複習前面的部分<br>
+有許多觀念會打結在一起，需要能夠融會貫通才行
+
+實用連結：<br>
+[seaborn入門（二）：barplot與countplot](https://zhuanlan.zhihu.com/p/24553277)
 
 ---
 
