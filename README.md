@@ -103,6 +103,15 @@ figsize：圖表長寬
 
 ### **Day_006_HW** (2019-04-21) － EDA: Outlier 及處理：
 
+難易度：:star::star::star::star:
+
+觀察資料當中可能有outlier的欄位、解釋可能的原因，把篩選欄位印出圖表，
+在理解ECDF(Emprical Cumulative Density Plot)的地方較久，對於檢查/處理異常值的操作要再熟悉些
+
+實用連結：<br>
+[Ways to Detect and Remove the Outliers](https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba)<br>
+[ECDF with Python](https://stackoverflow.com/questions/14006520/ecdf-in-python-without-step-function)
+
 ---
 
 ### **Day_007_HW** (2019-04-22) － 常用的數值取代：中位數與分位數連續數值標準化：
