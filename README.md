@@ -133,11 +133,41 @@ figsize：圖表長寬
 
 ---
 
-### **Day_014_HW** (2019-04-19) － Subplots：
+### **Day_014_HW** (2019-04-29) － Subplots：
+
+使用subplot在不同位置畫圖形出來，同樣也是要觀察資料、清理NA值<br>
+有許多好用的畫圖方法，需要來好好研究
+
+實用連結：<br>
+[Subplot](https://matplotlib.org/examples/pylab_examples/subplots_demo.html)<br>
+[Seaborn.jointplot](https://seaborn.pydata.org/generated/seaborn.jointplot.html)
 
 ---
 
 ### **Day_015_HW** (2019-04-30) － Heatmap & Grid-plot：
+
+練習使用random函數，有滿多種沒用過的方法<br>
+之前曾經練習過subplot也複習了一下，一些新的畫圖方法也要熟記
+```
+numpy.random.uniform(low,high,size) #最小值、最大值，size可為[a,b]，A乘B的矩陣
+
+np.random.normal()：
+mu, sigma = 0, 0.1 # mean and standard deviation
+s = np.random.normal(mu, sigma, 1000)
+
+sns.heatmap(ext_data_corrs, cmap = plt.cm.RdYlBu_r, vmin = -0.25, annot = True, vmax = 0.6)
+vmin, vmax : 顯示的數據值的最大和最小的範圍
+cmap : matplotlib顏色表名稱或對象，或顏色列表，可選從數據值到色彩空間的映射。如果沒有提供，默認設置
+annot :如果為True，則將數據值寫入每個單元格中
+
+grid.map_upper() # 上半部
+grid.map_diag() # 對角線
+grid.map_lower() # 下半部
+```
+實用連結：<br>
+[numpy.random.uniform均匀分布](https://blog.csdn.net/weixin_41770169/article/details/80740370)<br>
+[Heatmap](https://www.jianshu.com/p/363bbf6ec335)<br>
+[Pairplot應用實例](https://towardsdatascience.com/visualizing-data-with-pair-plots-in-python-f228cf529166)
 
 ---
 
