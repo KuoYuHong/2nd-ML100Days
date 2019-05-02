@@ -283,6 +283,21 @@ grid.map_lower() # 下半部
 
 ### **Day_016_HW** (2019-05-01) － 模型初體驗 Logistic Regression：
 
+難易度：:star:
+
+複習前面運用到的方法，產生資料結果<br>
+主要讓我們熟悉參加Kaggle競賽並提交作業，為之後期中、期末考做準備
+
+```
+Scikit-learn 預處理工具 Imputer：
+可將缺失值替換為均值、中位數、眾數三種
+from sklearn.preprocessing import Imputer
+imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
+```
+
+實用連結：<br>
+[Python 機器學習 Scikit-learn 完全入門指南](https://kknews.cc/zh-tw/other/g5qoogm.html)
+
 ---
 
 ### **Day_017_HW** (2019-05-02) － 特徵工程簡介：
