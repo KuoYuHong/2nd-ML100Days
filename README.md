@@ -300,11 +300,54 @@ imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
 
 ---
 
+> ### 完成了第一部分資料清理數據前處理，不過這只是學習ML的剛開始，要做好基本功、持續努力
+
+## 主題二：資料科學特徵工程技術
+
 ### **Day_017_HW** (2019-05-02) － 特徵工程簡介：
+
+難易度：:star::star:
+
+辨識特徵工程樣貌以及類別型欄位、目標值，對於特徵工程的觀察與處理手法有初步的認識
+
+```
+使用display取代print：(限用於Ipython)
+>>>item = "AAAAA"
+>>>display(item)
+'AAAAA'
+
+也可用Image直接印出圖片
+```
+
+實用連結：<br>
+[知乎 - 特徵工程到底是什麼](https://www.zhihu.com/question/29316149)<br>
+[痞客幫-iT邦2019鐵人賽 : 為什麼特徵工程很重要](https://ithelp.ithome.com.tw/articles/10200041?sc=iThelpR)<br>
+[log1p(x) 和expm1(x) 函數的實現](https://blog.csdn.net/liyuanbhu/article/details/8544644)<br>
+[Ipython.display顯示圖像問題](https://bbs.csdn.net/topics/392144095)
 
 ---
 
-### **Day_018_HW** (2019-05-03) － ：
+### **Day_018_HW** (2019-05-03) － 特徵類型：
+
+難易度：:star:
+
+對各種資料類型進行操作來觀察，數值與類別型特徵的處理手法
+
+```
+groupby("item") #將資料依照自己要的column分組
+
+aggregate(min,np.mean,max) #聚合多個欄位在一起
+
+shape[0] #讀取矩陣第一維度的長度
+
+在print當中使用：f ' { 變數 } 會印出的文字 '
+可讓裡面的字串不用打"或'，字串外面可不用+來連結，可用{}裡面塞變數隔開來
+```
+
+實用連結：<br>
+[Python Tutorial 第二堂 - 數值與字串型態](https://openhome.cc/Gossip/CodeData/PythonTutorial/NumericStringPy3.html)<br>
+[Python3.7.2 : Built-in Types Python 官方說明](https://docs.python.org/3/library/stdtypes.html)<br>
+[python: numpy--函數shape用法](https://blog.csdn.net/xingchengmeng/article/details/62881859)
 
 ---
 
