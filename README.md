@@ -70,7 +70,7 @@
 難易度：:star::star:
 
 處理**類別型的資料**，也接觸到**Label Encoder vs. One Hot Encoder**：
-Label encoding: 把每個類別 mapping 到某個整數，不會增加新欄位
+Label encoding: 把每個類別 mapping 到某個整數，不會**增加新欄位**
 One Hot encoding: 為每個類別新增一個欄位，用 0/1 表示是否
 
 實用連接：<br>
@@ -86,7 +86,7 @@ One Hot encoding: 為每個類別新增一個欄位，用 0/1 表示是否
 
 難易度：:star::star:
 
-針對自己有興趣的欄位觀察資料分布、畫出直方圖，在畫圖花了較多時間操作和理解，有許多客製化方法決定圖的樣子
+針對自己有興趣的欄位觀察資料分布、**畫出直方圖**，在畫圖花了較多時間操作和理解，**有許多客製化方法**決定圖的樣子
 ```
 bins: 直方圖的柱數，默認為10
 edgecolor: 直方圖邊框顏色
@@ -102,8 +102,8 @@ figsize：圖表長寬
 
 難易度：:star::star::star::star:
 
-觀察資料當中可能有outlier的欄位、解釋可能的原因，把篩選欄位印出圖表，
-在理解ECDF(Emprical Cumulative Density Plot)的地方較久，對於檢查/處理異常值的操作要再熟悉些
+觀察資料當中**可能有outlier的欄位**、解釋可能的原因，把篩選欄位印出圖表，
+在理解ECDF(Emprical Cumulative Density Plot)的地方較久，對於**檢查/處理異常值**的操作要再熟悉些
 
 實用連結：<br>
 [Ways to Detect and Remove the Outliers](https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba)<br>
@@ -115,7 +115,7 @@ figsize：圖表長寬
 
 難易度：:star::star::star:
 
-對NA值用不同方法進行填補，以及數值標準化
+對**NA值**用不同方法**進行填補**，以及數值標準化
 
 實用連結：<br>
 [Is it a good practice to always scale/normalize data for machine learning?](https://stats.stackexchange.com/questions/189652/is-it-a-good-practice-to-always-scale-normalize-data-for-machine-learning)
@@ -126,7 +126,7 @@ figsize：圖表長寬
 
 難易度：:star::star::star:
 
-使用pd.cut方法將資料分組，並畫出箱型圖觀察
+使用**pd.cut方法將資料分組**，並**畫出箱型圖**觀察
 ```
 pd.cut()等寬劃分 #每一組組距一樣<br>
 pd.qcut()等頻劃分 #每一組會出現的頻率一樣
@@ -140,7 +140,7 @@ pd.qcut()等頻劃分 #每一組會出現的頻率一樣
 
 難易度：:star:
 
-熟悉相關係數，以randint和normal方式隨機產生數值畫出scatter plot圖表
+熟悉**相關係數**，以randint和normal方式隨機產生數值**畫出scatter plot圖表**
 
 ```
 np.random.randint(low, high=None, size=None, dtype='l') #返回隨機整數，範圍區間為[low,high），包含low，不包含high，size為數組維度大小，
@@ -158,8 +158,8 @@ s = np.random.normal(mu, sigma, 1000)
 
 難易度：:star::star::star:
 
-當使用的圖表看不出規律或如何解讀時，使用不同的方式呈現圖表<br>
-找出自己想要的欄位進行資料處理時花費較多時間，摸索了一下
+當使用的圖表**看不出規律或如何解讀**時，使用**不同的方式呈現圖表**<br>
+找出自己想要的欄位**進行資料處理時花費較多時間**，摸索了一下
 ```
 .unique()函數：在list中只取不重複的物件，再由小到大排列
 
@@ -183,8 +183,8 @@ quantile(q) #0 <= q <= 1，只限於pandas的DataFrame使用，Series無法
 
 難易度：:star::star::star:
 
-針對年齡分組與排序，畫出KDE圖和長條圖<br>
-在使用seaborn套件畫KDE圖時花較多時間摸索
+針對年齡分組與排序，**畫出KDE圖**和**長條圖**<br>
+在**使用seaborn套件畫KDE圖**時花較多時間摸索
 
 ```
 label = 'target == 1'：在圖表中顯示說明的圖例
@@ -208,8 +208,8 @@ Seaborn方法：(matplotlib基礎)
 
 難易度：:star:
 
-熟悉數值的離散化的調整工具<br>
-複習pd.cut()函數，這在作業中出現過滿多次了
+熟悉**數值的離散化**的調整工具<br>
+複習**pd.cut()函數**，這在作業中出現過滿多次了
 
 ```
 pd.cut()等寬劃分 #每一組組距一樣
@@ -230,7 +230,7 @@ pd.qcut()等頻劃分 #每一組會出現的頻率一樣
 
 難易度：:star::star::star::star:
 
-離散化自己有興趣的欄位，有些欄位比較難弄，弄了滿多時間，參數一直調不好:joy:<br>
+**離散化自己有興趣的欄位**，有些欄位比較難弄，弄了滿多時間，參數一直調不好:joy:<br>
 需要參考到前面Day11、12的方法，也算是在複習前面的部分<br>
 有許多觀念會打結在一起，需要能夠融會貫通才行
 
@@ -243,7 +243,7 @@ pd.qcut()等頻劃分 #每一組會出現的頻率一樣
 
 難易度：:star::star:
 
-使用subplot在不同位置畫圖形出來，同樣也是要觀察資料、清理NA值<br>
+使用**subplot**在不同位置畫圖形出來，同樣也是要**觀察資料、清理NA值**<br>
 有許多好用的畫圖方法，需要來好好研究
 
 實用連結：<br>
@@ -256,8 +256,8 @@ pd.qcut()等頻劃分 #每一組會出現的頻率一樣
 
 難易度：:star::star:
 
-練習使用random函數，有滿多種沒用過的方法<br>
-之前曾經練習過subplot也複習了一下，一些新的畫圖方法也要熟記
+練習使用**random函數**，有滿多種沒用過的方法<br>
+之前曾經練習過subplot也複習了一下，一些**新的畫圖方法**也要熟記
 ```
 numpy.random.uniform(low,high,size) #最小值、最大值，size可為[a,b]，A乘B的矩陣
 
@@ -286,7 +286,7 @@ grid.map_lower() # 下半部
 難易度：:star:
 
 複習前面運用到的方法，產生資料結果<br>
-主要讓我們熟悉參加Kaggle競賽並提交作業，為之後期中、期末考做準備
+主要讓我們**熟悉參加Kaggle競賽**並**提交作業**，為之後期中、期末考做準備
 
 ```
 Scikit-learn 預處理工具 Imputer：
@@ -308,7 +308,7 @@ imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
 
 難易度：:star::star:
 
-辨識特徵工程樣貌以及類別型欄位、目標值，對於特徵工程的觀察與處理手法有初步的認識
+辨識**特徵工程樣貌**以及**類別型欄位**、**目標值**，對於**特徵工程的觀察與處理手法**有初步的認識
 
 ```
 使用display取代print：(限用於Ipython)
@@ -331,7 +331,7 @@ imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
 
 難易度：:star:
 
-對各種資料類型進行操作來觀察，數值與類別型特徵的處理手法
+對各種資料類型進行操作來觀察，**數值與類別型特徵**的處理手法
 
 ```
 groupby("item") #將資料依照自己要的column分組
@@ -355,8 +355,8 @@ shape[0] #讀取矩陣第一維度的長度
 
 難易度：:star::star:
 
-進行一些缺失值的填補，思考填補方法，熟悉各種填補情況下搭配使用線性回歸(Linear regression)和羅吉斯迴歸分析(Logistic regression)的效果表現<br>
-標準化/最小最大化使用上的差異
+進行一些**缺失值的填補**，思考**填補方法**，熟悉各種填補情況下搭配使用**線性回歸**(Linear regression)和**羅吉斯迴歸分析**(Logistic regression)的效果表現<br>
+**標準化/最小最大化**使用上的差異
 
 實用連結：<br>
 [掘金 : Python數據分析基礎 : 數據缺失值處理](https://juejin.im/post/5b5c4e6c6fb9a04f90791e0c)
@@ -365,5 +365,87 @@ shape[0] #讀取矩陣第一維度的長度
 
 ### **Day_020_HW** (2019-05-05) － ：
 
+難易度：三顆
+
+了解離群職出現會有甚麼問題？<br>
+去除離群值：**捨棄**/**調整離群值**做法<br>
+刪除前最好能先**了解該數值會離群的可能原因**
+
+```
+log1p：
+對數去偏就是使用自然對數去除偏態
+常見於計數 / 價格這類非負且可能為 0 的欄位
+因為需要將 0 對應到 0，所以先加一 (plus one) 再取對數 (log)
+還原時使用 expm1，也就是先取指數 (exp) 後再減一 (minus one)
+
+sns.regplot #透過圖表顯示回歸關係，點圖+回歸線
+
+df.clip(a,b) #將df中的數字侷限在a~b之間
+
+sklearn cross_val_score() #驗證用來評分資料準確度
+```
+
+實用連結：<br>
+[離群值! 離群值? 離群值!](https://zhuanlan.zhihu.com/p/33468998)<br>
+[log1p(x) 和expm1(x) 函數的實現](https://blog.csdn.net/liyuanbhu/article/details/8544644)<br>
+[機器學習：交叉驗證](https://ithelp.ithome.com.tw/articles/10197461)
+
 ---
+
+### **Day_021_HW** (2019-05-06) － ：
+
+難易度：兩顆
+
+了解去除偏態手法：(Skewness)<br>
+1.標準化平移、去離群值<br>
+2.開根號乘以10<br>
+3.對數去偏後的新分布，平均值就比較具有代表性
+
+當**離群資料比例例太高**，或者**平均值沒有代表性**時，可以考慮**去除偏態**<br>
+去除偏態包含 : **對數去偏**、**方根去偏**以及**分布去偏**<br>
+使用 box-cox 分布去偏時，除了注意**λ參數要介於 0 到 0.5 之間**，並且要注意**轉換前的數值不可小於等於 0**
+
+```
+deepcopy #深拷貝：新對象的值不會因為原對象的改變而改變
+```
+
+實用連結：<br>
+[機器學習數學|偏度與峰度及其python 實現](https://blog.csdn.net/u013555719/article/details/78530879)
+
+---
+
+### **Day_022_HW** (2019-05-07) － ：
+
+難易度：三顆
+
+了解調整標籤編碼(Label Encoder) / 獨熱編碼 (One Hot Encoder) 方式，對於**線性迴歸**以及**梯度提升樹**兩種模型，何者**影響比較大**?對**預測結果**有何影響?<br>
+
+類別型特徵**建議預設採用標籤編碼**，除非該特徵重要性高，且可能值較少(獨熱編碼時負擔較低) 時，才應考慮使用獨熱編碼<br>
+**獨熱編碼缺點**是需要**較大的記憶空間與計算時間**，且**類別數量越多時越嚴重**<br>
+
+類別型特徵有**標籤編碼 (Label Encoding)**與**獨熱編碼(One Hot Encoding)**兩種基礎編碼方式<br>
+兩種編碼中**標籤編碼比較常用**，當特徵重要性高，且可能值較少時，才應該考慮獨熱編碼
+
+```
+GradientBoostingRegressor #梯度提升樹
+
+df_temp = pd.DataFrame() #設立一個空值DF
+
+標籤編碼：LabelEncoder
+獨熱編碼：get_dummies(sparse=False,dummy_na=False,drop_first=False)
+sparse(稀疏)：
+虛擬列是否應該稀疏。如果數據是Series或者包含所有列，則返回ReflectionDataFrame。否則返回帶有一些SparseBlock的DataFrame
+dummy_na : 
+增加一列表示空缺值，如果False就忽略空缺值
+drop_first : 
+獲得k中的k-1個類別值，去除第一個
+```
+
+實用連結：<br>
+[數據預處理：獨熱編碼（One-Hot Encoding）和 LabelEncoder標籤編碼](https://www.twblogs.net/a/5baab6e32b7177781a0e6859/zh-cn/)<br>
+[sklearn中的gbt(gbdt/gbrt)](http://d0evi1.com/sklearn/gbdt/)
+
+---
+
+
 
