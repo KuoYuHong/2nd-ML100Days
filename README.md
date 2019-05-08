@@ -365,7 +365,7 @@ shape[0] #讀取矩陣第一維度的長度
 
 ### **Day_020_HW** (2019-05-05) － ：
 
-難易度：三顆
+難易度：:star::star::star:
 
 了解離群職出現會有甚麼問題？<br>
 去除離群值：**捨棄**/**調整離群值**做法<br>
@@ -394,7 +394,7 @@ sklearn cross_val_score() #驗證用來評分資料準確度
 
 ### **Day_021_HW** (2019-05-06) － ：
 
-難易度：兩顆
+難易度：:star::star:
 
 了解去除偏態手法：(Skewness)<br>
 1.標準化平移、去離群值<br>
@@ -416,7 +416,7 @@ deepcopy #深拷貝：新對象的值不會因為原對象的改變而改變
 
 ### **Day_022_HW** (2019-05-07) － ：
 
-難易度：三顆
+難易度：:star::star::star:
 
 了解調整標籤編碼(Label Encoder) / 獨熱編碼 (One Hot Encoder) 方式，對於**線性迴歸**以及**梯度提升樹**兩種模型，何者**影響比較大**?對**預測結果**有何影響?<br>
 
@@ -444,6 +444,18 @@ drop_first :
 實用連結：<br>
 [數據預處理：獨熱編碼（One-Hot Encoding）和 LabelEncoder標籤編碼](https://www.twblogs.net/a/5baab6e32b7177781a0e6859/zh-cn/)<br>
 [sklearn中的gbt(gbdt/gbrt)](http://d0evi1.com/sklearn/gbdt/)
+
+---
+
+### **Day_023_HW** (2019-05-08) － ：
+
+---
+
+### **Day_024_HW** (2019-05-09) － ：
+
+---
+
+### **Day_025_HW** (2019-05-10) － ：
 
 ---
 
