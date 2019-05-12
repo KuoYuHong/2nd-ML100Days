@@ -449,13 +449,63 @@ drop_first :
 
 ### **Day_023_HW** (2019-05-09) － 類別型特徵 - 均值編碼：
 
+難易度：:star::star:
+
+當類別特徵與目標明顯相關時，該考慮採用均值編碼<br>
+均值編碼最大的問題在於相當容易 Overfitting<br>
+平滑化的方式能修正均值編碼容易 Overfitting 的問題，但效果有限，因此仍須經過檢驗後再決定是否該使用均值編碼
+
+```
+pd.merge(data, mean_df, how='left') # 使用 how='left' 是完全保留原資料表的所有 index 與順序
+
+data.drop([c] , axis=1) #刪除觀測值或欄位，axis = 0 刪除row，axis = 1 刪除column
+```
+
+實用連結：<br>
+[平均數編碼 ：針對高基數定性特徵(類別特徵)的數據處理/ 特徵工程](https://zhuanlan.zhihu.com/p/26308272)
+
 ---
 
 ### **Day_024_HW** (2019-05-10) － 類別型特徵 - 其他進階處理：
 
+難易度：:star::star:
+
+計數編碼：<br>
+計數編碼是計算類別在資料中的出現次數，當目標平均值與類別筆數呈正/負相關時，可以考慮使用
+
+雜湊編碼：<br>
+相異類別的數量量非常龐大時，特徵雜湊是一種折衷方案<br>
+在計算空間/時間與鑑別度間取折衷，也提高了了訊息密度，減少無用的標籤
+
+```
+計數編碼：
+count_df = df.groupby(['Ticket'])['Name'].agg({'Ticket_Count':'size'}).reset_index()
+
+雜湊編碼：
+df_temp['Ticket_Hash'] = df['Ticket'].map(lambda x:hash(x) % 10)
+```
+
+實用連結：<br>
+[Feature hashing (特徵哈希)](https://blog.csdn.net/laolu1573/article/details/79410187)<br>
+[基於sklearn的文本特徵抽取](https://www.jianshu.com/p/063840752151)
+
 ---
 
 ### **Day_025_HW** (2019-05-11) － 時間型特徵：
+
+難易度：:star::star:
+
+時間的週期概念：<br>
+年週期與春夏秋冬季節溫度相關<br>
+月週期與薪水、繳費相關<br>
+周週期與周休、消費習慣相關<br>
+日週期與生理理時鐘相關<br>
+
+時間型特徵最常用的是特徵分解 - 拆解成年/月/日/時/分/秒的分類值
+
+實用連結：<br>
+[PYTHON-基礎-時間日期處理小結](http://www.wklken.me/posts/2015/03/03/python-base-datetime.html)<br>
+[datetime — Basic date and time types](https://docs.python.org/3/library/datetime.html)
 
 ---
 
