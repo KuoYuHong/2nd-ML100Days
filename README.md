@@ -363,7 +363,7 @@ shape[0] #讀取矩陣第一維度的長度
 
 ---
 
-### **Day_020_HW** (2019-05-06)(官網更新慢了一天:joy:) － 數值型特徵 - 去除離群值：
+### **Day_020_HW** (2019-05-06)(似乎改成一週只出六天作業:joy:) － 數值型特徵 - 去除離群值：
 
 難易度：:star::star::star:
 
@@ -508,6 +508,38 @@ df_temp['Ticket_Hash'] = df['Ticket'].map(lambda x:hash(x) % 10)
 [datetime — Basic date and time types](https://docs.python.org/3/library/datetime.html)
 
 ---
+
+### **Day_026_HW** (2019-05-13) － 特徵組合 - 數值與數值組合：
+
+難易度：:star::star::star:
+
+在了解**經緯度一圈長度比**的地方花了比較久，經緯度數值確實要比較接近真實情況加入評估較好，但實際特徵評估結果卻略差一些些，有可能對於橢圓的地球來說在不同經緯度位置效果會不同
+
+```
+經緯度一圈的長度比：cos(40.75度) : 1 = 0.75756 : 1
+latitude_average = df['pickup_latitude'].mean()
+latitude_factor = math.cos(latitude_average/180math.pi)
+df['distance_real'] = ((df['longitude_diff']latitude_factor)**2 + df['latitude_diff']**2)**0.5
+```
+
+實用連結：<br>
+[特徵組合&特徵交叉 (Feature Crosses)](https://segmentfault.com/a/1190000014799038)<br>
+[簡單高效的組合特徵自動挖掘框架](https://zhuanlan.zhihu.com/p/42946318)<br>
+[經緯度與公里的計算](http://wp.mlab.tw/?p=2200)
+
+---
+
+### **Day_027_HW** (2019-05-14) － 特徵組合 - 類別與數值組合：
+
+
+---
+
+### **Day_028_HW** (2019-05-15) － 特徵選擇：
+
+
+---
+
+
 
 
 
