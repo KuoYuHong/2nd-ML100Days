@@ -535,7 +535,7 @@ df['distance_real'] = ((df['longitude_diff']latitude_factor)**2 + df['latitude_d
 
 群聚編碼：<br>
 數值型特徵對文字型特徵最重要的特徵組合方式<br>
-見的有 mean, median, mode, max, min, count 等<br>
+常見的有 mean, median, mode, max, min, count 等<br>
 ![均值編碼&群聚編碼比較](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E5%9D%87%E5%80%BC%E7%B7%A8%E7%A2%BC%26%E7%BE%A4%E8%81%9A%E7%B7%A8%E7%A2%BC%E6%AF%94%E8%BC%83.png)
 
 均值編碼容易overfitting/聚類編碼不容易overfitting的<br>
@@ -568,11 +568,47 @@ L1_list
 ```
 
 調整過許多次參數<br>
-今天有比較多觀念在裡面，要綜合前幾天所學的去做判斷、調整，需要多去理解
+今天有比較多觀念在裡面，要綜合前幾天所學的去做**判斷、調整**，需要多去理解
 
 實用連結：<br>
 [特徵選擇](https://zhuanlan.zhihu.com/p/32749489)<br>
 [特徵選擇線上手冊](https://machine-learning-python.kspax.io/intro-1)
+
+---
+
+### **Day_029_HW** (2019-05-16) － ：
+
+---
+
+### **Day_030_HW** (2019-05-17) － ：
+
+---
+
+### **Day_031_HW** (2019-05-18) － ：
+
+---
+
+### **Day_032_HW** (2019-05-20) － ：
+
+---
+
+### **Day_033_HW** (2019-05-21) － ：
+
+---
+
+### **Day_034_HW** (2019-05-22) － ：
+
+---
+
+### **Day_035_HW** (2019-05-23) － ：
+
+---
+
+### **Day_036_HW** (2019-05-24) － ：
+
+---
+
+### **Day_037_HW** (2019-05-25) － ：
 
 ---
 
