@@ -531,11 +531,48 @@ df['distance_real'] = ((df['longitude_diff']latitude_factor)**2 + df['latitude_d
 
 ### **Day_027_HW** (2019-05-14) － 特徵組合 - 類別與數值組合：
 
+難易度：:star::star::star:
+
+群聚編碼：<br>
+數值型特徵對文字型特徵最重要的特徵組合方式<br>
+見的有 mean, median, mode, max, min, count 等<br>
+![均值編碼&群聚編碼比較](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E5%9D%87%E5%80%BC%E7%B7%A8%E7%A2%BC%26%E7%BE%A4%E8%81%9A%E7%B7%A8%E7%A2%BC%E6%AF%94%E8%BC%83.png)
+
+均值編碼容易overfitting/聚類編碼不容易overfitting的<br>
+不過類別型和數值型欄位的選用會影響很大，如何提高**生存率預估**就要選擇與他最相關的欄位來做，效果較好
+
+實用連結：<br>
+[利用 Python 數據分析之數據聚合與分組](https://zhuanlan.zhihu.com/p/27590154)
 
 ---
 
 ### **Day_028_HW** (2019-05-15) － 特徵選擇：
 
+難易度：:star::star::star::star:
+
+特徵選擇有三大類方法：<br>
+•過濾法 (Filter) : 選定統計數值與設定門檻，刪除低於門檻的特徵<br>
+•包裝法 (Wrapper) : 根據目標函數，逐步加入特徵或刪除特徵<br>
+•嵌入法 (Embedded) : 使用機器學習模型，根據擬合後的係數，刪除係數低於門檻的特徵<br>
+本日內容將會介紹三種較常用的特徵選擇法：<br>
+•過濾法 : 相關係數過濾法<br>
+•嵌入法 : L1(Lasso)嵌入法，GDBT(梯度提升樹)嵌入法
+
+```
+from itertools import compress：
+compress 可用於對數據進行篩選，當selectors 的某個元素為true 時，則保留data 對應位置的元素，否則去除
+
+L1_mask = list((L1_Reg.coef_>0) | (L1_Reg.coef_<0))
+L1_list = list(compress(list(df), list(L1_mask))) #將df轉化成list，只保留要的相關係數之間的數值
+L1_list
+```
+
+調整過許多次參數<br>
+今天有比較多觀念在裡面，要綜合前幾天所學的去做判斷、調整，需要多去理解
+
+實用連結：<br>
+[特徵選擇](https://zhuanlan.zhihu.com/p/32749489)<br>
+[特徵選擇線上手冊](https://machine-learning-python.kspax.io/intro-1)
 
 ---
 
