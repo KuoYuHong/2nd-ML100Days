@@ -10,7 +10,7 @@
 * **7-初探深度學習使用Keras**
 * **8-深度學習應用卷積神經網路**
 * **期末考-Kaggle競賽**
-* **結論**
+* **結語**
 
 ### :point_right: 我的[Kaggle](https://www.kaggle.com/kuoyuhong)
 
@@ -26,7 +26,7 @@
 
 ---
 
-### **Day_005_HW** (2019-04-20) － EDA資料分佈：
+### **Day_005_HW** － EDA資料分佈：
 
 難易度：:star::star:
 
@@ -42,7 +42,7 @@ figsize：圖表長寬
 
 ---
 
-### **Day_006_HW** (2019-04-21) － EDA: Outlier 及處理：
+### **Day_006_HW** － EDA: Outlier 及處理：
 
 難易度：:star::star::star::star:
 
@@ -55,7 +55,7 @@ figsize：圖表長寬
 
 ---
 
-### **Day_008_HW** (2019-04-23) － DataFrame operationData frame merge/常用的 DataFrame 操作：
+### **Day_008_HW** － DataFrame operationData frame merge/常用的 DataFrame 操作：
 
 難易度：:star::star::star:
 
@@ -69,7 +69,7 @@ pd.qcut()等頻劃分 #每一組會出現的頻率一樣
 
 ---
 
-### **Day_011_HW** (2019-04-26) － EDA: 不同數值範圍間的特徵如何檢視/繪圖與樣式Kernel Density Estimation (KDE)：
+### **Day_011_HW** － EDA: 不同數值範圍間的特徵如何檢視/繪圖與樣式Kernel Density Estimation (KDE)：
 
 難易度：:star::star::star:
 
@@ -84,7 +84,7 @@ Seaborn方法：(matplotlib基礎)
 ```
 ---
 
-### **Day_014_HW** (2019-04-29) － Subplots：
+### **Day_014_HW** － Subplots：
 
 難易度：:star::star:
 
@@ -93,7 +93,7 @@ Seaborn方法：(matplotlib基礎)
 
 ---
 
-### **Day_015_HW** (2019-04-30) － Heatmap & Grid-plot：
+### **Day_015_HW** － Heatmap & Grid-plot：
 
 難易度：:star::star:
 
@@ -118,7 +118,7 @@ grid.map_lower() # 下半部
 
 ---
 
-### **Day_016_HW** (2019-05-01) － 模型初體驗 Logistic Regression：
+### **Day_016_HW** － 模型初體驗 Logistic Regression：
 
 難易度：:star:
 
@@ -136,43 +136,28 @@ imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
 
 ## 主題二：資料科學特徵工程技術
 
-### **Day_018_HW** (2019-05-03) － 特徵類型：
-
-難易度：:star:
-
-對各種資料類型進行操作來觀察，**數值與類別型特徵**的處理手法
-
-```
-groupby("item") #將資料依照自己要的column分組
-
-aggregate(min,np.mean,max) #聚合多個欄位在一起
-
-shape[0] #讀取矩陣第一維度的長度
-
-在print當中使用：f ' { 變數 } 會印出的文字 '
-可讓裡面的字串不用打"或'，字串外面可不用+來連結，可用{}裡面塞變數隔開來
-```
-
-實用連結：<br>
-[Python Tutorial 第二堂 - 數值與字串型態](https://openhome.cc/Gossip/CodeData/PythonTutorial/NumericStringPy3.html)<br>
-[Python3.7.2 : Built-in Types Python 官方說明](https://docs.python.org/3/library/stdtypes.html)<br>
-[python: numpy--函數shape用法](https://blog.csdn.net/xingchengmeng/article/details/62881859)
+### **Day_019_HW** － 數值型特徵-補缺失值與標準化：
+### **Day_020_HW** － 數值型特徵 - 去除離群值：
+### **Day_022_HW** － 類別型特徵 - 基礎處理：
+### **Day_023_HW** － 類別型特徵 - 均值編碼：
+### **Day_024_HW** － 類別型特徵 - 其他進階處理：
+### **Day_025_HW** － 時間型特徵：
+### **Day_026_HW** － 特徵組合 - 數值與數值組合：
+### **Day_027_HW** － 特徵組合 - 類別與數值組合：
+### **Day_028_HW** － 特徵選擇：
 
 ---
 
-### **Day_019_HW** (2019-05-04) － 數值型特徵-補缺失值與標準化：
+### **Day_019_HW** － 數值型特徵-補缺失值與標準化：
 
 難易度：:star::star:
 
 進行一些**缺失值的填補**，思考**填補方法**，熟悉各種填補情況下搭配使用**線性回歸**(Linear regression)和**羅吉斯迴歸分析**(Logistic regression)的效果表現<br>
 **標準化/最小最大化**使用上的差異
 
-實用連結：<br>
-[掘金 : Python數據分析基礎 : 數據缺失值處理](https://juejin.im/post/5b5c4e6c6fb9a04f90791e0c)
-
 ---
 
-### **Day_020_HW** (2019-05-06)(似乎改成一週只出六天作業:joy:) － 數值型特徵 - 去除離群值：
+### **Day_020_HW** － 數值型特徵 - 去除離群值：
 
 難易度：:star::star::star:
 
@@ -193,37 +178,9 @@ df.clip(a,b) #將df中的數字侷限在a~b之間
 
 sklearn cross_val_score() #驗證用來評分資料準確度
 ```
-
-實用連結：<br>
-[離群值! 離群值? 離群值!](https://zhuanlan.zhihu.com/p/33468998)<br>
-[log1p(x) 和expm1(x) 函數的實現](https://blog.csdn.net/liyuanbhu/article/details/8544644)<br>
-[機器學習：交叉驗證](https://ithelp.ithome.com.tw/articles/10197461)
-
 ---
 
-### **Day_021_HW** (2019-05-07) － 數值型特徵 - 去除偏態：
-
-難易度：:star::star:
-
-了解去除偏態手法：(Skewness)<br>
-1.標準化平移、去離群值<br>
-2.開根號乘以10<br>
-3.對數去偏後的新分布，平均值就比較具有代表性
-
-當**離群資料比例例太高**，或者**平均值沒有代表性**時，可以考慮**去除偏態**<br>
-去除偏態包含 : **對數去偏**、**方根去偏**以及**分布去偏**<br>
-使用 box-cox 分布去偏時，除了注意**λ參數要介於 0 到 0.5 之間**，並且要注意**轉換前的數值不可小於等於 0**
-
-```
-deepcopy #深拷貝：新對象的值不會因為原對象的改變而改變
-```
-
-實用連結：<br>
-[機器學習數學|偏度與峰度及其python 實現](https://blog.csdn.net/u013555719/article/details/78530879)
-
----
-
-### **Day_022_HW** (2019-05-08) － 類別型特徵 - 基礎處理：
+### **Day_022_HW** － 類別型特徵 - 基礎處理：
 
 難易度：:star::star::star:
 
@@ -250,13 +207,9 @@ drop_first :
 獲得k中的k-1個類別值，去除第一個
 ```
 
-實用連結：<br>
-[數據預處理：獨熱編碼（One-Hot Encoding）和 LabelEncoder標籤編碼](https://www.twblogs.net/a/5baab6e32b7177781a0e6859/zh-cn/)<br>
-[sklearn中的gbt(gbdt/gbrt)](http://d0evi1.com/sklearn/gbdt/)
-
 ---
 
-### **Day_023_HW** (2019-05-09) － 類別型特徵 - 均值編碼：
+### **Day_023_HW** － 類別型特徵 - 均值編碼：
 
 難易度：:star::star:
 
@@ -270,12 +223,9 @@ pd.merge(data, mean_df, how='left') # 使用 how='left' 是完全保留原資料
 data.drop([c] , axis=1) #刪除觀測值或欄位，axis = 0 刪除row，axis = 1 刪除column
 ```
 
-實用連結：<br>
-[平均數編碼 ：針對高基數定性特徵(類別特徵)的數據處理/ 特徵工程](https://zhuanlan.zhihu.com/p/26308272)
-
 ---
 
-### **Day_024_HW** (2019-05-10) － 類別型特徵 - 其他進階處理：
+### **Day_024_HW** － 類別型特徵 - 其他進階處理：
 
 難易度：:star::star:
 
@@ -294,13 +244,9 @@ count_df = df.groupby(['Ticket'])['Name'].agg({'Ticket_Count':'size'}).reset_ind
 df_temp['Ticket_Hash'] = df['Ticket'].map(lambda x:hash(x) % 10)
 ```
 
-實用連結：<br>
-[Feature hashing (特徵哈希)](https://blog.csdn.net/laolu1573/article/details/79410187)<br>
-[基於sklearn的文本特徵抽取](https://www.jianshu.com/p/063840752151)
-
 ---
 
-### **Day_025_HW** (2019-05-11) － 時間型特徵：
+### **Day_025_HW** － 時間型特徵：
 
 難易度：:star::star:
 
@@ -312,13 +258,9 @@ df_temp['Ticket_Hash'] = df['Ticket'].map(lambda x:hash(x) % 10)
 
 時間型特徵最常用的是特徵分解 - 拆解成年/月/日/時/分/秒的分類值
 
-實用連結：<br>
-[PYTHON-基礎-時間日期處理小結](http://www.wklken.me/posts/2015/03/03/python-base-datetime.html)<br>
-[datetime — Basic date and time types](https://docs.python.org/3/library/datetime.html)
-
 ---
 
-### **Day_026_HW** (2019-05-13) － 特徵組合 - 數值與數值組合：
+### **Day_026_HW** － 特徵組合 - 數值與數值組合：
 
 難易度：:star::star::star:
 
@@ -331,24 +273,44 @@ latitude_factor = math.cos(latitude_average/180math.pi)
 df['distance_real'] = ((df['longitude_diff']latitude_factor)**2 + df['latitude_diff']**2)**0.5
 ```
 
-實用連結：<br>
-[特徵組合&特徵交叉 (Feature Crosses)](https://segmentfault.com/a/1190000014799038)<br>
-[簡單高效的組合特徵自動挖掘框架](https://zhuanlan.zhihu.com/p/42946318)<br>
-[經緯度與公里的計算](http://wp.mlab.tw/?p=2200)
+---
+
+### **Day_027_HW** － 特徵組合 - 類別與數值組合：
+
+難易度：:star::star::star:
+
+群聚編碼：<br>
+數值型特徵對文字型特徵最重要的特徵組合方式<br>
+常見的有 mean, median, mode, max, min, count 等<br>
+![均值編碼&群聚編碼比較](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E5%9D%87%E5%80%BC%E7%B7%A8%E7%A2%BC%26%E7%BE%A4%E8%81%9A%E7%B7%A8%E7%A2%BC%E6%AF%94%E8%BC%83.png)
+
+均值編碼容易overfitting/聚類編碼不容易overfitting的<br>
+不過類別型和數值型欄位的選用會影響很大，如何提高**生存率預估**就要選擇與他最相關的欄位來做，效果較好
 
 ---
 
-### **Day_027_HW** (2019-05-14) － 特徵組合 - 類別與數值組合：
+### **Day_028_HW** － 特徵選擇：
 
+難易度：:star::star::star::star:
+
+特徵選擇有三大類方法：<br>
+•過濾法 (Filter) : 選定統計數值與設定門檻，刪除低於門檻的特徵<br>
+•包裝法 (Wrapper) : 根據目標函數，逐步加入特徵或刪除特徵<br>
+•嵌入法 (Embedded) : 使用機器學習模型，根據擬合後的係數，刪除係數低於門檻的特徵<br>
+本日內容將會介紹三種較常用的特徵選擇法：<br>
+•過濾法 : 相關係數過濾法<br>
+•嵌入法 : L1(Lasso)嵌入法，GDBT(梯度提升樹)嵌入法
+
+```
+from itertools import compress：
+compress 可用於對數據進行篩選，當selectors 的某個元素為true 時，則保留data 對應位置的元素，否則去除
+
+L1_mask = list((L1_Reg.coef_>0) | (L1_Reg.coef_<0))
+L1_list = list(compress(list(df), list(L1_mask))) #將df轉化成list，只保留要的相關係數之間的數值
+L1_list
+```
 
 ---
-
-### **Day_028_HW** (2019-05-15) － 特徵選擇：
-
-
----
-
-
 
 
 
