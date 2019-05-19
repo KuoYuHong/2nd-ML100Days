@@ -578,17 +578,49 @@ L1_list
 
 ### **Day_029_HW** (2019-05-16) － ：
 
+難易度：:star::star::star:
+
+特徵重要性評估之後進行組合，看是否能夠提高生存率預估正確率，需要具備領域知識才有可能進一步提高正確率<br>
+
+實用連結：<br>
+[機器學習 - 特徵選擇算法流程、分類、優化與發展綜述](https://juejin.im/post/5a1f7903f265da431c70144c)<br>
+[Permutation Importance](https://www.kaggle.com/dansbecker/permutation-importance?utm_medium=email&utm_source=mailchimp&utm_campaign=ml4insights)
+
 ---
 
 ### **Day_030_HW** (2019-05-17) － ：
+
+難易度：:star::star::star:
+
+了解葉編碼的使用，有時候效果不是很明顯，還是要觀看資料的本質後做出適當的特徵工程方法<br>
+
+實用連結：<br>
+[Feature transformations with ensembles of trees](https://scikit-learn.org/stable/auto_examples/ensemble/plot_feature_transformation.html#example-ensemble-plot-feature-transformation-py)<br>
+[CTR 預估[十一]： Algorithm-GBDT Encoder](https://zhuanlan.zhihu.com/p/31734283)<br>
+[三分鐘了解推薦系統中的分解機方法(Factorization Machine, FM)](https://kknews.cc/zh-tw/other/62k4rml.html)
 
 ---
 
 ### **Day_031_HW** (2019-05-18) － ：
 
+難易度：:star:
+
+了解機器學習、透過一些影片和文獻讓我們更了解<br>
+
+實用連結：<br>
+[了解機器學習/人工智慧的各種名詞意義](https://kopu.chat/2017/07/28/%E6%A9%9F%E5%99%A8%E6%98%AF%E6%80%8E%E9%BA%BC%E5%BE%9E%E8%B3%87%E6%96%99%E4%B8%AD%E3%80%8C%E5%AD%B8%E3%80%8D%E5%88%B0%E6%9D%B1%E8%A5%BF%E7%9A%84%E5%91%A2/)<br>
+[聽聽人工智慧頂尖學者分享 AI 的知識](https://www.ted.com/talks/fei_fei_li_how_we_re_teaching_computers_to_understand_pictures?language=zh-tw)
+
 ---
 
 ### **Day_032_HW** (2019-05-20) － ：
+
+難易度：:star:
+
+今天也是讓我們閱讀一些機器學習相關文章來思考文章要表達的目標和方法<br>
+
+實用連結：<br>
+ML 流程 by Google-[The 7 Steps of Machine Learning (AI Adventures)](https://www.youtube.com/watch?v=nKW8Ndu7Mjw)
 
 ---
 
