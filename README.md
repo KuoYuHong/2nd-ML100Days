@@ -627,15 +627,53 @@ ML 流程 by Google-[The 7 Steps of Machine Learning (AI Adventures)](https://ww
 
 ---
 
-### **Day_033_HW** (2019-05-20) － ：
+### **Day_033_HW** (2019-05-20) － 機器如何學習?：
+
+難易度：:star:
+
+思考了何謂機器學習與過擬合、模型的泛化能力、分類問題與回歸問題分別可用的目標函數有哪些後，讓我們了解到機器學習概論比較深的理論，學好前面的觀念，後來在實際操作時才會比較順利
+
+實用連結：<br>
+理解機器學習中很重要的 Bias/Variance trade-off 的意義為何？<br>
+[機器學習老中醫：利用學習曲線診斷模型的偏差和方差](http://bangqu.com/yjB839.html)<br>
+[機器學習中的目標函數分析](https://www.twblogs.net/a/5c188f10bd9eee5e41847a50)
 
 ---
 
-### **Day_034_HW** (2019-05-21) － ：
+### **Day_034_HW** (2019-05-21) － 訓練/測試集切分的概念：
+
+難易度：:star::star::star::star:
+
+了解sklearn使用train_test_split、KFold的訓練/測試集切分方法，並使用train_test_split切分資料，有些參數設定要理解一下，摸索比較久<br>
+
+[sklearn.model_selection.train_test_split](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)<br>
+[sklearn.model_selection.KFold](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html#sklearn.model_selection.KFold)<br>
+
+```
+X_train,X_test, y_train, y_test =cross_validation.train_test_split(train_data,train_target,test_size=0.4, random_state=0)
+引數解釋：
+train_data：所要劃分的樣本特徵集
+train_target：所要劃分的樣本結果
+test_size：樣本佔比，如果是整數的話就是樣本的數量
+random_state：是隨機數的種子。是該組隨機數的編號，在需要重複試驗的時候，保證得到一組一樣的隨機數。比如你每次都填1，其他引數一樣的情況下你得到的隨機陣列是一樣的。但填0或不填，每次都會不一樣。
+隨機數的產生取決於種子，隨機數和種子之間的關係遵從以下兩個規則：種子不同，產生不同的隨機數；種子相同，即使例項不同也產生相同的隨機數。
+```
+
+實用連結：<br>
+理解訓練、驗證與測試集的意義與用途<br>
+[台大電機李宏毅教授講解訊練/驗證/測試集的意義](https://www.youtube.com/watch?v=D_S6y0Jm6dQ&feature=youtu.be&t=1948)
 
 ---
 
-### **Day_035_HW** (2019-05-22) － ：
+### **Day_035_HW** (2019-05-22) － regression vs. classification：
+
+難易度：:star:
+
+了解多分類問題與多標籤問題差別，試著去辨認出來<br>
+
+實用連結：<br>
+了解回歸與分類的差異在哪裡?<br>
+[回歸與分類的比較](http://zylix666.blogspot.com/2016/06/supervised-classificationregression.html)
 
 ---
 
