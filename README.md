@@ -600,7 +600,7 @@ L1_list
 [三分鐘了解推薦系統中的分解機方法(Factorization Machine, FM)](https://kknews.cc/zh-tw/other/62k4rml.html)
 
 ---
-> ### 
+> ### 完成了第二部分特徵工程學習，掌握特徵的取捨才能讓我們得到良好的特徵結果
 
 ## 主題三：機器學習基礎模型建立
 
