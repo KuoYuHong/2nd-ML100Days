@@ -132,6 +132,20 @@ df_temp['Ticket_Hash'] = df['Ticket'].map(lambda x:hash(x) % 10)
 ![群聚編碼](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E7%BE%A4%E8%81%9A%E7%B7%A8%E7%A2%BC.png)
 ![均值編碼&群聚編碼比較](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E5%9D%87%E5%80%BC%E7%B7%A8%E7%A2%BC%26%E7%BE%A4%E8%81%9A%E7%B7%A8%E7%A2%BC%E6%AF%94%E8%BC%83.png)
 
+### 葉編碼(leaf encoding)：
+採用決策樹的葉點作為編碼依據重新編碼<br>
+每棵樹視為一個新特徵，每個新特徵均為分類型特徵，決策樹的葉點與該特徵標籤一一對應<br>
+最後再以邏輯斯迴歸合併預測<br>
+![葉編碼-1](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E8%91%89%E7%B7%A8%E7%A2%BC-1.png)
+
+##### 葉編碼(leaf encoding)+邏輯斯迴歸：
+葉編碼需要先對樹狀模型擬合後才能生成，如果這步驟挑選了較佳的參數，後續處理效果也會較好，這點與特徵重要性類似<br>
+實際結果也證明，在分類預測中使用樹狀模型，再對這些擬合完的樹狀模型進行葉編碼+邏輯斯迴歸，通常會將預測效果再進一步提升<br>
+![葉編碼-2](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E8%91%89%E7%B7%A8%E7%A2%BC-2.png)
+
+葉編碼的目的是重新標記資料，以擬合後的樹狀模型分歧條件，將資料離散化，這樣比人為寫作的判斷條件更精準，更符合資料的分布情形<br>
+葉編碼編完後，因為特徵數量較多，通常搭配邏輯斯迴歸或者分解機做預測，其他模型較不適合<br>
+
 ---
 
 
