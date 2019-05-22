@@ -16,6 +16,9 @@
 
 # 主題一：資料清理數據前處理
 
+![前處理](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E5%89%8D%E8%99%95%E7%90%86.png)
+![探索式數據分析](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E6%8E%A2%E7%B4%A2%E5%BC%8F%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90.png)
+
 ### **重點摘要：**
 ### **Day_005_HW** － EDA資料分佈：
 ### **Day_006_HW** － EDA: Outlier 及處理：
@@ -32,6 +35,8 @@
 ---
 
 # 主題二：資料科學特徵工程技術
+
+![特徵工程](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E7%89%B9%E5%BE%B5%E5%B7%A5%E7%A8%8B.png)
 
 ### **重點摘要：**
 ### **Day_019_HW** － 數值型特徵-補缺失值與標準化：
@@ -169,6 +174,8 @@ df_temp['Ticket_Hash'] = df['Ticket'].map(lambda x:hash(x) % 10)
 ---
 
 # 主題三：機器學習基礎模型建立
+
+![模型選擇](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E6%A8%A1%E5%9E%8B%E9%81%B8%E6%93%87.png)
 
 ### **重點摘要：**
 
