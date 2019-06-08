@@ -30,6 +30,113 @@
 
 ## Outlier處理、數值標準化、離散化：
 
+### 檢查異常值(Outlier)的方法：
+**統計值**：如平均數、標準差、中位數、分位數、z-score、IQR<br>
+**畫圖**：如直方圖、盒圖、次數累積分布等<br>
+**處理異常值**：
+* 取代補值：中位數、平均數等
+* 另建欄位
+* 整欄不用
+
+#### z-score：<br>
+Z = ( x - np.mean(x) ) / np.std(x)
+
+sklearn有內建的z-score方法可以使用<br>
+```
+from sklearn.preprocessing import StandardScaler
+scale = StandardScaler()
+train_set_scaled = pd.DataFrame(scale.fit_transform(train_set), columns=train_set.keys())
+```
+
+#### IQR(四分位數間距)：<br>
+np.quantile(item, 0.5)<br>
+
+Q1 = item.quantile(0.25)<br>
+Q3 = item.quantile(0.75)<br>
+IQR = Q3 - Q1<br>
+
+### 資料標準化：
+Python標準化預處理函數：<br>
+
+```
+preprocessing.scale(X,axis=0, with_mean=True, with_std=True, copy=True)
+```
+將數據轉化為標準常態分佈(均值為0，方差為1)<br>
+
+```
+preprocessing.MinMaxScaler(X,feature_range=(0, 1), axis=0, copy=True)
+```
+將數據在縮放在固定區間，默認縮放到區間[0, 1]<br>
+min_：ndarray，縮放後的最小值偏移量<br>
+scale_：ndarray，縮放比例<br>
+data_min_：ndarray，資料最小值<br>
+data_max_：ndarray，資料最大值<br>
+data_range_：ndarray，資料最大最小範圍的長度<br>
+
+```
+preprocessing.maxabs_scale(X,axis=0, copy=True)
+```
+數據的縮放比例為絕對值最大值，並保留正負號，即在區間[-1.0, 1.0]內。唯一可用於稀疏數據scipy.sparse的標準化<br>
+scale_：ndarray，縮放比例<br>
+max_abs_：ndarray，絕對值最大值<br>
+n_samples_seen_：int，已處理的樣本個數<br>
+
+```
+preprocessing.robust_scale(X,axis=0, with_centering=True, with_scaling=True,copy=True)
+```
+通過Interquartile Range (IQR) 標準化數據，即四分之一和四分之三分位點之間<br>
+
+```
+preprocessing.StandardScaler(copy=True, with_mean=True,with_std=True)
+```
+scale_：ndarray，縮放比例<br>
+mean_：ndarray，均值<br>
+var_：ndarray，方差<br>
+n_samples_seen_：int，已處理的樣本個數，調用partial_fit()時會累加，調用fit()會重設<br>
+
+#### 標準化方法：<br>
+* fit(X[,y])：根據數據X的值，設置標準化縮放的比例
+* transform(X[,y, copy])：用之前設置的比例標準化X
+* fit_transform(X[, y])：根據X設置標準化縮放比例並標準化
+* partial_fit(X[,y])：累加性的計算縮放比例
+* inverse_transform(X[,copy])：將標準化後的數據轉換成原數據比例
+* get_params([deep])：獲取參數
+* set_params( **params)：設置參數
+
+### 資料離散化：
+為什麼要離散化？<br>
+* 調高計算效率
+* 分類模型計算需要
+* 給予距離計算模型（k均值、協同過濾）中降低異常資料對模型的影響
+* 影象處理中的二值化處理
+
+#### 連續資料離散化方法：<br>
+* 分位數法：使用四分位、五分位、十分位等進行離散
+* 距離區間法：等距區間或自定義區間進行離散，有點是靈活，保持原有資料分佈
+* 頻率區間法：根據資料的頻率分佈進行排序，然後按照頻率進行離散，好處是資料變為均勻分佈，但是會更改原有的資料結構
+* 聚類法：使用k-means將樣本進行離散處理
+* 卡方：通過使用基於卡方的離散方法，找出資料的最佳臨近區間併合並，形成較大的區間
+* 二值化：資料跟閾值比較，大於閾值設定為某一固定值（例如1），小於設定為另一值（例如0），然後得到一個只擁有兩個值域的二值化資料集。
+
+```
+pd.cut(item, bins, right=True, labels=None, retbins=False, precision=3, include_lowest=False, labels=NULL)
+```
+x ： 必須是一維資料<br>
+bins： 不同面元（不同範圍）型別:整數，序列如陣列, 和IntervalIndex<br>
+right： 最後一個bins是否包含最右邊的資料，預設為True<br>
+precision：精度 預設保留三位小數<br>
+retbins： 即return bins 是否返回每一個bins的範圍 預設為False<br>
+labels(表示結果標籤，一般最好新增，方便閱讀和後續統計)<br>
+
+```
+pandas.qcut(x, q, labels=None, retbins=False, precision=3, duplicates=’raise’)
+```
+x:是資料 1d ndarray或Series<br>
+q：整數或分位數陣列；定義區間分割方法<br>
+分位數10為十分位數，4為四分位數等。或分位陣列，如四分位數 [0, 0.25, 0.5, 0.75, 1] 分成兩半[0, 0.5, 1]<br>
+
+---
+
 ## 資料視覺化(Matplotlib、Seaborn)：
 
 ---
