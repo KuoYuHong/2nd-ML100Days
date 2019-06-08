@@ -833,7 +833,7 @@ min_samples_leaf=1
 
 ---
 
-### **Day_045_HW** (2019-05-25) － tree based model - 梯度提升機 (Gradient Boosting Machine) 介紹：
+### **Day_045_HW** (2019-06-03) － tree based model - 梯度提升機 (Gradient Boosting Machine) 介紹：
 
 難易度：:star:
 
@@ -852,7 +852,7 @@ min_samples_leaf=1
 
 ---
 
-### **Day_046_HW** (2019-05-25) － tree based model - 梯度提升機程式碼撰寫：
+### **Day_046_HW** (2019-06-04) － tree based model - 梯度提升機程式碼撰寫：
 
 難易度：:star::star:
 
@@ -867,7 +867,7 @@ min_samples_leaf=1
 
 ## 主題四：機器學習調整參數
 
-### **Day_047_HW** (2019-05-25) － 超參數調整與優化：
+### **Day_047_HW** (2019-06-05) － 超參數調整與優化：
 
 難易度：:star::star::star:
 
@@ -886,7 +886,7 @@ min_samples_leaf=1
 
 ---
 
-### **Day_048_HW** (2019-05-25) － Kaggle 競賽平台介紹：
+### **Day_048_HW** (2019-06-06) － Kaggle 競賽平台介紹：
 
 難易度：:star::star::star::star:
 
@@ -897,7 +897,7 @@ min_samples_leaf=1
 
 ---
 
-### **Day_049_HW** (2019-05-25) － 集成方法 : 混合泛化(Blending)：
+### **Day_049_HW** (2019-06-07) － 集成方法 : 混合泛化(Blending)：
 
 難易度：:star::star::star::star:
 
@@ -914,7 +914,7 @@ Kaggle 競賽網站-Kernel 範例[網頁連結](https://www.kaggle.com/tunguz/su
 
 ---
 
-### **Day_050_HW** (2019-05-25) － 集成方法 : 堆疊泛化(Stacking)：
+### **Day_050_HW** (2019-06-08) － 集成方法 : 堆疊泛化(Stacking)：
 
 難易度：:star::star::star:
 
