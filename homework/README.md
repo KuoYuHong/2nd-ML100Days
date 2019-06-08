@@ -28,7 +28,7 @@
 ### **Day_015_HW** － Heatmap & Grid-plot：
 ### **Day_016_HW** － 模型初體驗 Logistic Regression：
 
-## Outlier處理、數值標準化、離散化：
+## Outlier處理、資料標準化、離散化：
 
 ### 檢查異常值(Outlier)的方法：
 **統計值**：如平均數、標準差、中位數、分位數、z-score、IQR<br>
