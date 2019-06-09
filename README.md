@@ -833,6 +833,104 @@ min_samples_leaf=1
 
 ---
 
+### **Day_045_HW** (2019-06-03) － tree based model - 梯度提升機 (Gradient Boosting Machine) 介紹：
+
+難易度：:star:
+
+閱讀XGBoost/Light-GBM、Gradient-boosting相關文章並了解
+
+實用連結：<br>
+* [梯度提升機原理 - 中文](https://ifun01.com/84A3FW7.html)<br>
+文章中的殘差就是前面提到的 Loss，從範例中了解殘差是如何被修正的<br>
+* [XGboost 作者講解原理 - 英文](https://www.youtube.com/watch?v=ufHo8vbk6g4)<br>
+了解 XGBoost 的目標函數是什麼，模型是怎麼樣進行優化<br>
+* [XGBoost 數學原理 slides - 英文](https://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf)<br>
+了解 XGBoost 的目標函數數學推導<br>
+* [Kaggle 大師帶你了解梯度提升機原理 - 英文](http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/)<br>
+* [完整的 Ensemble 概念 by 李宏毅教授](https://www.youtube.com/watch?v=tH9FH1DH5n0)<br>
+* [深入了解 Gradient-boosting - 英文](https://explained.ai/gradient-boosting/index.html)<br>
+
+---
+
+### **Day_046_HW** (2019-06-04) － tree based model - 梯度提升機程式碼撰寫：
+
+難易度：:star::star:
+
+了解GradientBoostingClassifier的使用方法並實作
+
+實用連結：<br>
+[完整調參數攻略-如何使用 Python 調整梯度提升機的超參數](complete-guide-parameter-tuning-gradient-boosting-gbm)
+
+---
+
+> ### 了解機器學習當中的評估指標、基礎模型與樹狀模型，針對不同的問題類型來選用模型去訓練，才能得到比較好的成果！
+
+## 主題四：機器學習調整參數
+
+### **Day_047_HW** (2019-06-05) － 超參數調整與優化：
+
+難易度：:star::star::star:
+
+熟悉各種不同超參數調整方法，有助於提升訓練結果<br>
+
+```
+超參數調整方法：
+窮舉法 (Grid Search)：直接指定超參數的組合範圍，每一組參數都訓練完成，再根據驗證集 (validation) 的結果選擇最佳參數
+隨機搜尋 (Random Search)：指定超參數的範圍，用均勻分布進行參數抽樣，用抽到的參數進行訓練，再根據驗證集的結果選擇最佳參數
+隨機搜尋通常都能獲得更佳的結果
+```
+
+實用連結：<br>
+[劍橋實驗室教你如何調參數 -  英文](https://cambridgecoding.wordpress.com/2016/04/03/scanning-hyperspace-how-to-tune-machine-learning-models/)<br>
+[教你使用 Python 調整隨機森林參數 - 英文](https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74)<br>
+
+---
+
+### **Day_048_HW** (2019-06-06) － Kaggle 競賽平台介紹：
+
+難易度：:star::star::star::star:
+
+在Kaggle的scikit-learn-practice比賽練習，觀看別人的Kernels，試著去理解寫法並內化成自己的知識<br>
+
+實用連結：<br>
+[scikit-learn-practice](https://www.kaggle.com/c/data-science-london-scikit-learn)
+
+---
+
+### **Day_049_HW** (2019-06-07) － 集成方法 : 混合泛化(Blending)：
+
+難易度：:star::star::star::star:
+
+練習集成方法中的混合泛化(Blending)，去觀看結果分數有沒有比原先來得好<br>
+
+實用連結：<br>
+機器學習技法 Lecture 7: Blending and Bagging<br>
+林軒田老師公開課程[網頁連結](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/207_handout.pdf) [影片連結](https://www.youtube.com/watch?v=mjUKsp0MvMI&list=PLXVfgk9fNX2IQOYPmqjqWsNUFl2kpk1U2&index=27&t=0s)<br>
+當我們在網路上自己搜尋 Blending 時，往往搜尋到的都是林軒田老師的課程筆記，因此我們推薦同學如果對於 Blending 或  Bagging 的理論想要一探更完整內容的話，不妨來這邊尋找研讀的資料，相信絕對不會讓您失望 (如果太困難，也可以參考網路上眾多的閱讀筆記)
+
+Superblend<br>
+Kaggle 競賽網站-Kernel 範例[網頁連結](https://www.kaggle.com/tunguz/superblend)<br>
+這邊就是我們所謂競賽中的 Blending Kernel，只是決定一個權重，將兩個其他的 Kernel 合併成答案檔，就是這場競賽中的最高分 Kernel，我們並不是要鼓勵大家也去這樣去賺分數，而是在告訴大家 : Blending 的簡單，以及 Blending 的具有威力。
+
+---
+
+### **Day_050_HW** (2019-06-08) － 集成方法 : 堆疊泛化(Stacking)：
+
+難易度：:star::star::star:
+
+練習集成方法中的堆疊泛化(Stacking)，在混合泛化後進一步調整模型，試著讓結果更好<br>
+
+實用連結：<br>
+StackingCVClassifier<br>
+mlxtrend 官方網站 [網頁連結](http://rasbt.github.io/mlxtend/user_guide/classifier/StackingCVClassifier/)<br>
+如何在 Kaggle 首戰中進入前 10%
+Wille 個人心得 [網頁連結](https://dnc1994.com/2016/04/rank-10-percent-in-first-kaggle-competition/)<br>
+
+---
+
+### **期中考** (2019-06-10~16)：
+
+---
 
 
 
