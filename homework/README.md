@@ -832,7 +832,7 @@ Voting / Blending / Stacking<br>
 ### 堆疊泛化(Stacking)：
 
 Stacking 小歷史<br>
-雖然堆疊泛化 (Stacking) 的論文早在 2012 年，就由 David H. Wolpert 發布(原始論文連結)[http://www.machine-learning.martinsewell.com/ensembles/stacking/Wolpert1992.pdf]<br>
+雖然堆疊泛化 (Stacking) 的論文早在 2012 年，就由 David H. Wolpert 發布[原始論文連結](http://www.machine-learning.martinsewell.com/ensembles/stacking/Wolpert1992.pdf)<br>
 但真正被廣泛應用於競賽上，是2014年底的 Kaggle 競賽開始<br>
 由於 Kaggle 一直有前幾名於賽後發布做法的風氣，所以當有越來越多的前幾名使用 Stacking 後，這個技術就漸漸變得普及起來，甚至後來出現了加速混合與計算速度的StackNet<br>
 
