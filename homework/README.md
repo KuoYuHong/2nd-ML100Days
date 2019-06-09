@@ -402,5 +402,23 @@ df_temp['Ticket_Hash'] = df['Ticket'].map(lambda x:hash(x) % 10)
 ### **重點摘要：**
 
 ### **Day_034_HW** － 訓練/測試集切分的概念：
+### **Day_035_HW** － regression vs. classification：
+### **Day_036_HW** － 評估指標選定/evaluation metrics：
+### **Day_037_HW** － regression model 介紹 - 線性迴歸/羅吉斯回歸：
+### **Day_039_HW** － regression model 介紹 - LASSO 回歸/ Ridge 回歸：
+### **Day_041_HW** － tree based model - 決策樹 (Decision Tree) 模型介紹：
+### **Day_043_HW** － tree based model - 隨機森林 (Random Forest) 介紹：
+### **Day_045_HW** － tree based model - 梯度提升機 (Gradient Boosting Machine) 介紹：
+
+---
+
+# 主題四：機器學習調整參數
+
+![參數調整](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E5%8F%83%E6%95%B8%E8%AA%BF%E6%95%B4.png)
+![集成](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E5%8F%83%E6%95%B8%E8%AA%BF%E6%95%B4-%E9%9B%86%E6%88%90.png)
+
+### **重點摘要：**
+
+### **Day_047_HW** － 超參數調整與優化：
 
 ---
