@@ -135,6 +135,8 @@ x:是資料 1d ndarray或Series<br>
 q：整數或分位數陣列；定義區間分割方法<br>
 分位數10為十分位數，4為四分位數等。或分位陣列，如四分位數 [0, 0.25, 0.5, 0.75, 1] 分成兩半[0, 0.5, 1]<br>
 
+![連續型數值標準化](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E9%80%A3%E7%BA%8C%E5%9E%8B%E6%95%B8%E5%80%BC%E6%A8%99%E6%BA%96%E5%8C%96.png)
+
 ---
 
 ## 二、資料視覺化(Matplotlib、Seaborn)：
@@ -455,6 +457,7 @@ AUC 是衡量曲線下的面積，因此可考量所有閾值下的準確性<br>
 auc = metrics.roc_auc_score(y_test, y_pred) # 使用 roc_auc_score 來評估。這邊特別注意 y_pred 必須要放機率值進去!
 print("AUC: ", auc) # 得到結果約 0.5，與亂猜的結果相近，因為我們的預測值是用隨機生成的
 ```
+![auc for roc curves](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/auc%20for%20roc%20curves.png)
 
 ##### F1-Score：
 分類問題中，我們有時會對某一類別的準確率特別有興趣。例如瑕疵/正常樣本分類，我們希望任何瑕疵樣本都不能被漏掉。<br>
@@ -544,6 +547,174 @@ plt.xlabel('Value of K for KNN')
 plt.ylabel('Cross-Validated MSE')
 plt.show()
 ```
+
+## 三、機器學習模型
+
+### 線性回歸模型：
+
+線性回歸模型 Linear Regression：<br>
+* 簡單常見的線性模型，可使用於回歸問題。訓練速度非常快，但須注意資料共線性、資料標準化等限制
+* 通常可作為 baseline 模型作為參考點
+
+羅吉斯回歸 Logistics Regression：<br>
+* 雖然有回歸兩個字，但 Logsitics 是分類模型
+* 將線性回歸的結果，加上Sigmoid 函數，將預測值限制在 0 ~ 1 之間，即為預測機率值。
+```
+# 讀取breast_cancer資料集
+breast_cancer = datasets.load_breast_cancer()
+
+# 為方便視覺化，我們只使用資料集中的 1 個 feature (column)
+X = breast_cancer.data[:, np.newaxis, 2]
+print("Data shape: ", X.shape) # 可以看見有 442 筆資料與我們取出的其中一個 feature
+
+# 切分訓練集/測試集
+x_train, x_test, y_train, y_test = train_test_split(X, breast_cancer.target, test_size=0.1, random_state=4)
+
+# 建立一個線性回歸模型
+regr = linear_model.LinearRegression()
+
+# 將訓練資料丟進去模型訓練
+regr.fit(x_train, y_train)
+
+# 將測試資料丟進模型得到預測結果
+y_pred = regr.predict(x_test)
+```
+
+### LASSO、Ridge Regression應用：
+
+機器學習模型的目標函數中有兩個非常重要的元素<br>
+* 損失函數 (Loss function)
+* 正則化 (Regularization)
+
+損失函數衡量預測值與實際值的差異，讓模型能往正確的方向學習<br>
+正則化則是避免模型變得過於複雜，造成過擬合 (Over-fitting)<br>
+
+正則化函數是用來衡量模型的複雜度<br>
+該怎麼衡量？有 L1 與 L2 兩種函數<br>
+![正則化函數-L1、L2](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E6%AD%A3%E5%89%87%E5%8C%96%E5%87%BD%E6%95%B8-L1%E3%80%81L2.png)
+
+這兩種都是希望模型的參數數值不要太大，原因是參數的數值變小，噪音對最終輸出的結果影響越小，提升模型的泛化能力，但也讓模型的擬合能力下降<br>
+
+LASSO 為 Linear Regression 加上 L1 <br>
+Ridge 為 Linear Regression 加上 L2<br>
+其中有個超參數α可以調整正則化的強度<br>
+簡單來說，LASSO 與 Ridge 就是回歸模型加上不同的正則化函數<br>
+
+Lasso 使用的是 L1 regularization，這個正則化的特性會讓模型變得較為稀疏，除了了能做特徵選取外，也會讓模型變得更輕量，速度較快<br>
+
+---
+
+### 決策樹DecisionTreeClassifier、DecisionTreeRegressor模型的應用：
+
+決策樹 (Decision Tree)：<br>
+從訓練資料中找出規則，讓每一次決策能使訊息增益 (Information Gain) 最大化<br>
+訊息增益越大代表切分後的兩群資料，群內相似程度越高<br>
+
+訊息增益 (Information Gain)：<br>
+決策樹模型會用 features 切分資料，該選用哪個 feature 來切分則是由訊息增益的大小決定的。希望切分後的資料相似程度很高，通常使用吉尼係數來衡量相似程度<br>
+![訊息增益](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E8%A8%8A%E6%81%AF%E5%A2%9E%E7%9B%8A.png)
+
+衡量資料相似: Gini vs. Entropy：<br>
+該怎麼衡量量資料相似程度？通常使用吉尼係數 (gini-index) 或熵 (entropy) 來衡量<br>
+![衡量資料相似 Gini vs. Entropy](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/%E8%A1%A1%EF%A5%BE%E8%B3%87%E6%96%99%E7%9B%B8%E4%BC%BC%20Gini%20vs.%20Entropy.png)
+
+應用：
+```
+# 讀取breast_cancer資料集
+breast_cancer = datasets.load_breast_cancer()
+
+# 切分訓練集/測試集
+x_train, x_test, y_train, y_test = train_test_split(breast_cancer.data, breast_cancer.target, test_size=0.25, random_state=4)
+
+# 建立模型
+clf = DecisionTreeClassifier(criterion = 'gini',max_depth = None,min_samples_split = 2,min_samples_leaf = 1,)
+
+# 訓練模型
+clf.fit(x_train, y_train)
+
+# 預測測試集
+y_pred = clf.predict(x_test)
+```
+
+決策樹的超參數：<br>
+Criterion: 衡量資料相似程度的 <br>
+metricMax_depth: 樹能生長的最深限制<br>
+Min_samples_split: 至少要多少樣本以上才進行切分<br>
+Min_samples_lear: 最終的葉子 (節點) 上至少要有多少樣本<br>
+
+---
+
+### 隨機森林RandomForest方法：
+```
+# 讀取鳶尾花資料集
+iris = datasets.load_iris()
+
+# 切分訓練集/測試集
+x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.25, random_state=4)
+
+# 建立模型 (使用 20 顆樹，每棵樹的最大深度為 4)
+clf = RandomForestClassifier(n_estimators=20, max_depth=4)
+
+# 訓練模型
+clf.fit(x_train, y_train)
+
+# 預測測試集
+y_pred = clf.predict(x_test)
+
+# 觀看準確率：
+acc = metrics.accuracy_score(y_test, y_pred)
+print("Accuracy: ", acc)
+
+# 觀看feature_names：
+print(iris.feature_names)
+
+# 觀看Feature importance：
+print("Feature importance: ", clf.feature_importances_)
+```
+
+隨機森林的模型超參數：<br>
+同樣是樹的模型，所以像是 max_depth, min_samples_split 都與決策樹相同<br>
+可決定要生成數的數量，越多越不容易過擬和，但是運算時間會變長<br>
+```
+fromsklearn.ensemble import RandomForestClassifier #集成模型
+
+clf = RandomForestClassifier(
+n_estimators=10, #決策樹的數量量
+criterion="gini",
+max_features="auto", #如何選取 features
+max_depth=10,
+min_samples_split=2,
+min_samples_leaf=1
+)
+```
+
+---
+
+### 梯度提升機 (Gradient Boosting Machine)：
+
+隨機森林使用的集成方法稱為 Bagging (Bootstrap aggregating)，用抽樣的資料與 features ⽣生成每一棵樹，最後再取平均<br>
+Boosting 則是另一種集成方法，希望能夠由後面生成的樹，來來修正前面樹學不好的地方
+要怎麼修正前面學錯的地方呢？計算 Gradient!<br>
+每次生成樹都是要修正前面樹預測的錯誤，並乘上 learning rate 讓後面的樹能有更多學習的空間<br>
+Random Forest 的每一棵樹皆是獨立的樹，前一棵樹的結果不會影響下一顆<br>
+Gradient boosting 因為下一棵樹是為了修正前一棵樹的錯誤，因此每一棵樹皆有相關聯<br>
+
+Bagging 與 Boosting 的差別：<br>
+* Bagging 是透過抽樣 (sampling) 的方式來生成每一棵樹，樹與樹之間是獨立生成的
+* Boosting 是透過序列 (additive)的方式來生成每一顆樹，每棵樹都會與前面的樹關聯，因為後面的樹要能夠修正
+
+可決定要生成數的數量，越多越不容易過擬和，但是運算時間會變長<br>
+```
+from sklearn.ensemble import GradientBoostingClassifier
+clf = GradientBoostingClassifier(
+loss="deviance", #Loss 的選擇，若改為 exponential 則會變成Adaboosting 演算法，概念相同但實作稍微不同
+learning_rate=0.1, #每棵樹對最終結果的影響，應與 n_estimators 成反比
+n_estimators=100 #決策樹的數量量
+)
+```
+
+Q：隨機森林與梯度提升機的特徵重要性結果不相同？<br>
+A：決策樹計算特徵重要性的概念是，觀察某一特徵被用來切分的次數而定。假設有兩個一模一樣的特徵，在隨機森林中每棵樹皆為獨立，因此兩個特徵皆有可能被使用，最終統計出來的次數會被均分。在梯度提升機中，每棵樹皆有關連，因此模型僅會使用其中一個特徵，另一個相同特徵的重要性則會消失<br>
 
 ---
 
