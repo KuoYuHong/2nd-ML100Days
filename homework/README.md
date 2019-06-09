@@ -28,7 +28,7 @@
 ### **Day_015_HW** － Heatmap & Grid-plot：
 ### **Day_016_HW** － 模型初體驗 Logistic Regression：
 
-## Outlier處理、資料標準化、離散化：
+## 一、Outlier處理、資料標準化、離散化：
 
 ### 檢查異常值(Outlier)的方法：
 **統計值**：如平均數、標準差、中位數、分位數、z-score、IQR<br>
@@ -137,7 +137,7 @@ q：整數或分位數陣列；定義區間分割方法<br>
 
 ---
 
-## 資料視覺化(Matplotlib、Seaborn)：
+## 二、資料視覺化(Matplotlib、Seaborn)：
 
 ### matplotlib方法：
 import matplotlib.pyplot as plt<br>
@@ -273,7 +273,7 @@ len = 26<br>
 ### **Day_029_HW** － 特徵評估：
 ### **Day_030_HW** － 分類型特徵優化 - 葉編碼：
 
-## 類別型特徵處理：
+## 各類型特徵處理：
 
 ### 標籤編碼(Label Encoder)：
 * 類似於流水號，依序將新出現的類別依序編上新代碼，已出現的類別編上已使用的代碼<br>
@@ -409,6 +409,141 @@ df_temp['Ticket_Hash'] = df['Ticket'].map(lambda x:hash(x) % 10)
 ### **Day_041_HW** － tree based model - 決策樹 (Decision Tree) 模型介紹：
 ### **Day_043_HW** － tree based model - 隨機森林 (Random Forest) 介紹：
 ### **Day_045_HW** － tree based model - 梯度提升機 (Gradient Boosting Machine) 介紹：
+
+## 一、建立模型四步驟：
+
+在 Scikit-learn 中，建立一個機器學習的模型其實非常簡單，流程大略是以下四個步驟<br>
+
+1. 讀進資料，並檢查資料的 shape (有多少 samples (rows), 多少 features (columns)，label 的型態是什麼？)
+    - 讀取資料的方法：
+        * **使用 pandas 讀取 .csv 檔**：pd.read_csv
+        * **使用 numpy 讀取 .txt 檔**：np.loadtxt 
+        * **使用 Scikit-learn 內建的資料集**：sklearn.datasets.load_xxx
+    - **檢查資料數量**：data.shape (data should be np.array or dataframe)
+2. 將資料切為訓練 (train) / 測試 (test)
+    - train_test_split(data)
+3. 建立模型，將資料 fit 進模型開始訓練
+    - clf = DecisionTreeClassifier()
+    - clf.fit(x_train, y_train)
+4. 將測試資料 (features) 放進訓練好的模型中，得到 prediction，與測試資料的 label (y_test) 做評估
+    - clf.predict(x_test)
+    - accuracy_score(y_test, y_pred)
+    - f1_score(y_test, y_pred)
+
+## 二、模型評估/模型驗證：
+
+### 模型評估：
+#### 評估指標-迴歸：
+```
+X, y = datasets.make_regression(n_features=1, random_state=42, noise=4) # 生成資料
+model = LinearRegression() # 建立回歸模型
+model.fit(X, y) # 將資料放進模型訓練
+prediction = model.predict(X) # 進行預測
+mae = metrics.mean_absolute_error(prediction, y) # 使用 MAE 評估
+mse = metrics.mean_squared_error(prediction, y) # 使用 MSE 評估
+r2 = metrics.r2_score(prediction, y) # 使用 r-square 評估
+print("MAE: ", mae)
+print("MSE: ", mse)
+print("R-square: ", r2)
+```
+
+#### 評估指標-分類：<br>
+##### AUC(Area Under Curve)：<br>
+AUC 指摽是分類問題常用的指標，通常分類問題都需要定一個閾值(threshold) 來決定分類的類別 (通常為機率 > 0.5 判定為 1,  機率 < 0.5 判定為 0)<br>
+AUC 是衡量曲線下的面積，因此可考量所有閾值下的準確性<br>
+```
+auc = metrics.roc_auc_score(y_test, y_pred) # 使用 roc_auc_score 來評估。這邊特別注意 y_pred 必須要放機率值進去!
+print("AUC: ", auc) # 得到結果約 0.5，與亂猜的結果相近，因為我們的預測值是用隨機生成的
+```
+
+##### F1-Score：
+分類問題中，我們有時會對某一類別的準確率特別有興趣。例如瑕疵/正常樣本分類，我們希望任何瑕疵樣本都不能被漏掉。<br>
+Precision，Recall 則是針對某類別進行評估<br>
+Precision: 模型判定瑕疵，樣本確實為瑕疵的比例<br>
+Recall: 模型判定的瑕疵，佔樣本所有瑕疵的比例
+(以瑕疵檢測為例例，若為 recall=1 則代表所有瑕疵都被找到)<br>
+F1-Score 則是 Precision, Recall 的調和平均數<br>
+```
+threshold = 0.5
+y_pred_binarized = np.where(y_pred>threshold, 1, 0) # 使用 np.where 函數, 將 y_pred > 0.5 的值變為 1，小於 0.5 的為 0
+f1 = metrics.f1_score(y_test, y_pred_binarized) # 使用 F1-Score 評估
+precision = metrics.precision_score(y_test, y_pred_binarized) # 使用 Precision 評估
+recall  = metrics.recall_score(y_test, y_pred_binarized) # 使用 recall 評估
+print("F1-Score: ", f1)
+print("Precision: ", precision)
+print("Recall: ", recall)
+```
+
+### 模型驗證：
+#### Model基礎驗證法：
+```
+from sklearn.datasets import load_iris # iris資料集
+from sklearn.model_selection import train_test_split # 分割資料模組
+from sklearn.neighbors import KNeighborsClassifier # K最近鄰(kNN，k-NearestNeighbor)分類演算法
+#載入iris資料集
+iris = load_iris()
+X = iris.data
+y = iris.target
+#分割數據並
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=4)
+#建立模型
+knn = KNeighborsClassifier()
+#訓練模型
+knn.fit(X_train, y_train)
+#將準確率列印出
+print(knn.score(X_test, y_test))
+0.973684210526
+#可以看到基礎驗證的準確率為0.973684210526
+```
+
+#### Model交叉驗證法(Cross Validation)：
+```
+from sklearn.cross_validation import cross_val_score # K折交叉驗證模組
+#使用K折交叉驗證模組
+scores = cross_val_score(knn, X, y, cv=5, scoring='accuracy')
+#將5次的預測準確率列印出
+print(scores)
+[ 0.96666667  1.          0.93333333  0.96666667  1.        ]
+#將5次的預測準確平均率列印出
+print(scores.mean())
+0.973333333333
+#可以看到交叉驗證的準確平均率為0.973333333333
+```
+
+#### 以準確率(accuracy)判斷：
+一般來說準確率(accuracy)會用於判斷分類(Classification)模型的好壞<br>
+```
+import matplotlib.pyplot as plt #視覺化模組
+#建立測試參數集
+k_range = range(1, 31)
+k_scores = []
+#藉由反覆運算的方式來計算不同參數對模型的影響，並返回交叉驗證後的平均準確率
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    scores = cross_val_score(knn, X, y, cv=10, scoring='accuracy')
+    k_scores.append(scores.mean())
+#視覺化數據
+plt.plot(k_range, k_scores)
+plt.xlabel('Value of K for KNN')
+plt.ylabel('Cross-Validated Accuracy')
+plt.show()
+```
+
+#### 以平均方差(Mean squared error)：
+一般來說平均方差(Mean squared error)會用於判斷回歸(Regression)模型的好壞<br>
+```
+import matplotlib.pyplot as plt
+k_range = range(1, 31)
+k_scores = []
+for k in k_range:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    loss = cross_val_score(knn, X, y, cv=10, scoring='mean_squared_error')
+    k_scores.append(loss.mean())
+plt.plot(k_range, k_scores)
+plt.xlabel('Value of K for KNN')
+plt.ylabel('Cross-Validated MSE')
+plt.show()
+```
 
 ---
 
