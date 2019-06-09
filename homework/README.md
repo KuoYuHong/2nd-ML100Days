@@ -139,6 +139,121 @@ q：整數或分位數陣列；定義區間分割方法<br>
 
 ## 資料視覺化(Matplotlib、Seaborn)：
 
+### matplotlib方法：
+import matplotlib.pyplot as plt<br>
+
+#### plt.plot：
+plt.figure() #定義一個圖像視窗<br>
+plt.title('標題')<br>
+plt.xlabel('X軸名稱')<br>
+plt.ylabel('Y軸名稱')<br>
+plt.plot(x, y, color='red', linewidth=1.0, linestyle='--') #虛線<br>
+linewidth：曲線寬度<br>
+linestyle：曲線類型<br>
+plt.xlim((-1, 2)) #x座標範圍<br>
+plt.ylim((-2, 3)) #y座標範圍<br>
+plt.xlabel('I am x') #x座標軸名稱<br>
+plt.ylabel('I am y') #y座標軸名稱<br>
+plt.xticks([坐標刻度],[標籤])<br>
+plt.yticks([0,1,2,3,4],['$A$','$B$','C','D','E']) #設置x,y坐標軸刻度及標籤，$$是設置字體<br>
+ax = plt.gca() #獲取當前的坐標軸，gca = (get current axis)的縮寫<br>
+plot.kde() 創建一個核密度的繪圖，對於 Series和DataFrame資料結構都適用<br>
+label = 'target == 1'：在圖表中顯示說明的圖例<br>
+![plt.plot](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/plt.plot.png)
+
+#### plt.hist()：
+range = (0, 100000) #X軸最大最小值定義<br>
+color = 'skyblue' #顏色設定<br>
+set_title('標題')<br>
+set_xlabel('X軸名稱')<br>
+set_ylabel('Y軸名稱')<br>
+arr: 需要計算直方圖的一維數組<br>
+bins: 直方圖的柱數，默認為10<br>
+density: : 是否將得到的直方圖向量歸一化。默認為0<br>
+color：顏色序列，默認為None<br>
+facecolor: 直方圖顏色；<br>
+edgecolor: 直方圖邊框顏色<br>
+alpha: 透明度<br>
+histtype: 直方圖類型，『bar』, 『barstacked』, 『step』, 『stepfilled』：<br>
+histtype='xxxx' 設定長條圖的格式: bar與stepfilled爲不同形式的長條圖, step以橫線標示數值.
+* 'bar'是傳統的條形直方圖。如果給出多個數據，則條並排排列。
+* 'barstacked'是一種條形直方圖，其中多個數據堆疊在一起。
+* 'step'生成一個默認未填充的線圖。
+* 'stepfilled'生成一個默認填充的線圖。
+
+normed : boolean, optional， 意義就是說，返回的第一個n（後面解釋它的意義）吧，把它們正則化它，讓bins的值 的和為1，這樣差不多相當於概率分佈似的了；<br>
+cumulative : boolean, optional ，每一列都把之前的加起來。<br>
+bottom : array_like, scalar, or None，下面的每個bin的基線，表示bin的值都從這個基線上往上加；<br>
+orientation : {‘horizontal’, ‘vertical’}, optional：指的方向，分為水準與垂直兩個方向。
+rwidth : scalar or None, optional ，控制你要畫的bar 的寬度；<br>
+![plt.hist](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/plt.hist.png)
+
+#### plt.boxplot：
+matplotlib包中boxplot函數的參數含義及使用方法：<br>
+plt.boxplot(x, notch=None, sym=None, vert=None, whis=None, positions=None, widths=None, patch_artist=None, meanline=None, showmeans=None, showcaps=None, showbox=None, showfliers=None, boxprops=None, labels=None, flierprops=None, medianprops=None, meanprops=None, capprops=None, whiskerprops=None)<br>
+x：指定要繪製箱線圖的數據；<br>
+notch：是否是凹口的形式展現箱線圖，默認非凹口；<br>
+sym：指定異常點的形狀，默認為+號顯示；<br>
+vert：是否需要將箱線圖垂直擺放，默認垂直擺放；<br>
+whis：指定上下須與上下四分位的距離，默認為1.5倍的四分位差；<br>
+positions：指定箱線圖的位置，默認為[0,1,2…]；<br>
+widths：指定箱線圖的寬度，默認為0.5；<br>
+patch_artist：是否填充箱體的顏色；<br>
+meanline：是否用線的形式表示均值，默認用點來表示；<br>
+showmeans：是否顯示均值，默認不顯示；<br>
+showcaps：是否顯示箱線圖頂端和末端的兩條線，默認顯示；<br>
+showbox：是否顯示箱線圖的箱體，默認顯示；<br>
+showfliers：是否顯示異常值，默認顯示；<br>
+boxprops：設置箱體的屬性，如邊框色，填充色等；<br>
+labels：為箱線圖添加標籤，類似於圖例的作用；<br>
+filerprops：設置異常值的屬性，如異常點的形狀、大小、填充色等；<br>
+medianprops：設置中位數的屬性，如線的類型、粗細等；<br>
+meanprops：設置均值的屬性，如點的大小、顏色等；<br>
+capprops：設置箱線圖頂端和末端線條的屬性，如顏色、粗細等；<br>
+whiskerprops：設置須的屬性，如顏色、粗細、線的類型等；<br>
+#默認patch_artist=False，所以我們需要指定其參數值為True，即可自動填充顏色<br>
+
+plt.show() #在任何環境下都能夠產生圖像<br>
+
+![plt.boxplot](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/plt.boxplot.png)
+
+### Seaborn方法：
+import seaborn as sns<br>
+
+#### sns.heatmap：
+sns.heatmap(ext_data_corrs, cmap = plt.cm.RdYlBu_r, vmin = -0.25, annot = True, vmax = 0.6)<br>
+vmin, vmax : 顯示的數據值的最大和最小的範圍<br>
+cmap : matplotlib顏色表名稱或對象，或顏色列表，可選從數據值到色彩空間的映射。如果沒有提供，默認設置<br>
+center :指定色彩的中心值<br>
+robust : 如果“Ture”和“ vmin或” vmax不存在，則使用強分位數計算顏色映射範圍，而不是極值<br>
+annot :如果為True，則將數據值寫入每個單元格中<br>
+fmt :表格里顯示數據的類型<br>
+linewidths :劃分每個單元格的線的寬度。<br>
+linecolor :劃分每個單元格的線的顏色<br>
+cbar :是否繪製顏色條：colorbar，默認繪製<br>
+cbar_kws :未知 cbar_ax :顯示xy坐標，而不是節點的編號<br>
+square :為'True'時，整個網格為一個正方形<br>
+xticklabels, yticklabels :可以以字符串進行命名，也可以調節編號的間隔，也可以不顯示坐標<br>
+mask：布爾數組或DataFrame，可選，如果傳遞，則數據不會顯示在mask為True的單元格中。具有缺失值的單元格將自動被屏蔽。<br>
+ax： matplotlib Axes，可選，用於繪製圖的軸，否則使用當前活動的Axes。<br>
+kwargs：其他關鍵字參數，所有其他關鍵字參數都傳遞給ax.pcolormesh。<br>
+![seaborn.heatmap](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/seaborn.heatmap.png)
+
+### 查看總共有哪些畫圖樣式：
+```
+print(plt.style.available)<br>
+print(type(plt.style.available))<br>
+print(len(plt.style.available))<br>
+['bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn-bright', 'seaborn-colorblind', 'seaborn-dark-palette', 'seaborn-dark', 'seaborn-darkgrid', 'seaborn-deep', 'seaborn-muted', 'seaborn-notebook', 'seaborn-paper', 'seaborn-pastel', 'seaborn-poster', 'seaborn-talk', 'seaborn-ticks', 'seaborn-white', 'seaborn-whitegrid', 'seaborn', 'Solarize_Light2', 'tableau-colorblind10', '_classic_test']<br>
+<class 'list'><br>
+len = 26<br>
+```
+**使用plt.style.use('樣式')來套用方法**
+
+![plt.style.available](https://github.com/KuoYuHong/2nd-ML100Days/blob/master/%E5%9C%96%E7%89%87/plt.style.available.png)
+
+### [Style sheets reference](https://matplotlib.org/gallery/style_sheets/style_sheets_reference.html?highlight=pyplot%20text)
+
 ---
 
 # 主題二：資料科學特徵工程技術
